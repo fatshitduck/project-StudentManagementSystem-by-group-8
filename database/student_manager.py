@@ -1,4 +1,3 @@
-# database/student_manager.py
 import json
 import os
 import pandas as pd
@@ -8,7 +7,6 @@ class StudentManager:
     def __init__(self, data_file="data/students.json"):
         self.data_file = data_file
         self.students = []
-        # Đảm bảo thư mục data tồn tại
         os.makedirs(os.path.dirname(data_file), exist_ok=True)
         self.load_data()
 
@@ -43,12 +41,18 @@ class StudentManager:
     def get_all_students(self):
         return self.students.copy()
 
+    def get_all(self):
+        return self.get_all_students()
+
     def search_students(self, keyword=""):
         if not keyword:
             return self.students
         keyword_lower = keyword.lower()
         return [s for s in self.students 
                 if keyword_lower in s.name.lower() or keyword_lower in str(s.id)]
+
+    def search(self, keyword=""):
+        return self.search_students(keyword)
 
     def advanced_search(self, name="", student_id="", class_name="", 
                         gender="", min_score=None, max_score=None):
@@ -116,7 +120,6 @@ class StudentManager:
         return added, "\n".join(errors) if errors else None
 
     def load_sample_data(self):
-        """Tải dữ liệu mẫu nếu chưa có sinh viên nào"""
         if len(self.students) == 0:
             sample = [
                 Student(1001, "Nguyen Van A", "2000-01-15", "Nam", "CTK45", 8.5),

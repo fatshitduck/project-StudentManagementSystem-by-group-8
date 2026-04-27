@@ -1,4 +1,3 @@
-# main.py
 import customtkinter as ctk
 from database.student_manager import StudentManager
 from views.login_frame import LoginFrame
@@ -7,13 +6,12 @@ from views.main_frame import MainFrame
 class App(ctk.CTk):
     def __init__(self):
         super().__init__()
+        ctk.set_appearance_mode("dark")
         self.title("Student Management System")
         self.geometry("1200x700")
         
-        # Khởi tạo student manager
         self.manager = StudentManager()
 
-        # Stacked widget để chuyển giữa login và main
         self.stack = ctk.CTkFrame(self)
         self.stack.pack(fill="both", expand=True)
 

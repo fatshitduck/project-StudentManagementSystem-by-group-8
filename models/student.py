@@ -1,7 +1,6 @@
-# models/student.py
 class Student:
-    def __init__(self, student_id, name, dob, gender, class_name, score):
-        self.id = student_id
+    def __init__(self, id, name, dob, gender, class_name, score):
+        self.id = id
         self.name = name
         self.dob = dob
         self.gender = gender

@@ -1,17 +1,14 @@
-# views/sortable_treeview.py
 from tkinter import ttk
 
 class SortableTreeview(ttk.Treeview):
-    """Treeview hỗ trợ click header để sort (3 trạng thái)"""
     def __init__(self, master, columns, **kwargs):
         super().__init__(master, columns=columns, show="headings", **kwargs)
         self.sort_states = {col: None for col in columns}
-        self.original_data = []  # lưu dữ liệu gốc
+        self.original_data = []
         for col in columns:
             self.heading(col, text=col, command=lambda c=col: self.sort_by_column(c))
 
     def set_data(self, data):
-        """data: list of dict (mỗi dict có key trùng với tên cột)"""
         self.original_data = data
         self.refresh()
 

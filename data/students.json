@@ -1,0 +1,802 @@
+[
+  {
+    "id": 1,
+    "name": "Lê Khánh",
+    "dob": "27/01/2006",
+    "gender": "Nam",
+    "class_name": "CNT1",
+    "score": 6.1
+  },
+  {
+    "id": 2,
+    "name": "Lê Đức",
+    "dob": "05/08/2005",
+    "gender": "Nam",
+    "class_name": "CNT2",
+    "score": 6.4
+  },
+  {
+    "id": 3,
+    "name": "Bùi Văn",
+    "dob": "04/05/2007",
+    "gender": "Nữ",
+    "class_name": "CNTT3",
+    "score": 6.1
+  },
+  {
+    "id": 4,
+    "name": "Dương Quân",
+    "dob": "30/09/2007",
+    "gender": "Nam",
+    "class_name": "K15",
+    "score": 9.5
+  },
+  {
+    "id": 5,
+    "name": "Hoàng Phong",
+    "dob": "24/12/2006",
+    "gender": "Nữ",
+    "class_name": "CNTT4",
+    "score": 9.9
+  },
+  {
+    "id": 6,
+    "name": "Trần Quân",
+    "dob": "20/05/2006",
+    "gender": "Nữ",
+    "class_name": "K15",
+    "score": 3.7
+  },
+  {
+    "id": 7,
+    "name": "Đặng Văn",
+    "dob": "23/07/2007",
+    "gender": "Nữ",
+    "class_name": "CNT1",
+    "score": 9.5
+  },
+  {
+    "id": 8,
+    "name": "Phạm Khánh",
+    "dob": "19/01/2006",
+    "gender": "Nam",
+    "class_name": "CNTT4",
+    "score": 3.0
+  },
+  {
+    "id": 9,
+    "name": "Nguyễn An",
+    "dob": "14/05/2006",
+    "gender": "Nữ",
+    "class_name": "CNTT3",
+    "score": 7.3
+  },
+  {
+    "id": 10,
+    "name": "Nguyễn Nam",
+    "dob": "23/10/2007",
+    "gender": "Nam",
+    "class_name": "CNTT4",
+    "score": 5.8
+  },
+  {
+    "id": 11,
+    "name": "Hoàng Yến",
+    "dob": "10/06/2006",
+    "gender": "Nam",
+    "class_name": "CNTT3",
+    "score": 7.3
+  },
+  {
+    "id": 12,
+    "name": "Đặng Hải",
+    "dob": "28/02/2008",
+    "gender": "Nam",
+    "class_name": "CNT2",
+    "score": 6.0
+  },
+  {
+    "id": 13,
+    "name": "Lê Đức",
+    "dob": "21/08/2005",
+    "gender": "Nam",
+    "class_name": "CNT2",
+    "score": 5.5
+  },
+  {
+    "id": 14,
+    "name": "Dương Hải",
+    "dob": "19/11/2006",
+    "gender": "Nữ",
+    "class_name": "CNT2",
+    "score": 3.2
+  },
+  {
+    "id": 15,
+    "name": "Dương Tân",
+    "dob": "09/04/2006",
+    "gender": "Nam",
+    "class_name": "CNTT3",
+    "score": 6.2
+  },
+  {
+    "id": 16,
+    "name": "Bùi Phong",
+    "dob": "17/09/2006",
+    "gender": "Nữ",
+    "class_name": "CNT2",
+    "score": 6.6
+  },
+  {
+    "id": 17,
+    "name": "Dương Chiêu",
+    "dob": "21/02/2008",
+    "gender": "Nam",
+    "class_name": "CNT1",
+    "score": 7.4
+  },
+  {
+    "id": 18,
+    "name": "Bùi Đức",
+    "dob": "31/10/2008",
+    "gender": "Nữ",
+    "class_name": "CNTT3",
+    "score": 6.5
+  },
+  {
+    "id": 19,
+    "name": "Bùi Linh",
+    "dob": "06/07/2007",
+    "gender": "Nam",
+    "class_name": "K15",
+    "score": 3.5
+  },
+  {
+    "id": 20,
+    "name": "Phan Nam",
+    "dob": "12/03/2007",
+    "gender": "Nam",
+    "class_name": "CNTT3",
+    "score": 7.8
+  },
+  {
+    "id": 21,
+    "name": "Phan Phong",
+    "dob": "05/07/2008",
+    "gender": "Nữ",
+    "class_name": "CNTT3",
+    "score": 5.0
+  },
+  {
+    "id": 22,
+    "name": "Đặng Xuân",
+    "dob": "13/07/2006",
+    "gender": "Nam",
+    "class_name": "CNTT3",
+    "score": 6.6
+  },
+  {
+    "id": 23,
+    "name": "Bùi Tân",
+    "dob": "27/05/2008",
+    "gender": "Nam",
+    "class_name": "CNT2",
+    "score": 3.1
+  },
+  {
+    "id": 24,
+    "name": "Phạm Đức",
+    "dob": "30/04/2007",
+    "gender": "Nữ",
+    "class_name": "K15",
+    "score": 6.4
+  },
+  {
+    "id": 25,
+    "name": "Đặng Bắc",
+    "dob": "03/12/2006",
+    "gender": "Nam",
+    "class_name": "CNTT3",
+    "score": 5.3
+  },
+  {
+    "id": 26,
+    "name": "Trần Đức",
+    "dob": "02/12/2005",
+    "gender": "Nam",
+    "class_name": "CNTT3",
+    "score": 9.3
+  },
+  {
+    "id": 27,
+    "name": "Lê Huy",
+    "dob": "04/05/2006",
+    "gender": "Nam",
+    "class_name": "CNT1",
+    "score": 4.3
+  },
+  {
+    "id": 28,
+    "name": "Đặng An",
+    "dob": "21/01/2005",
+    "gender": "Nam",
+    "class_name": "CNT2",
+    "score": 6.7
+  },
+  {
+    "id": 29,
+    "name": "Lê Linh",
+    "dob": "26/10/2006",
+    "gender": "Nữ",
+    "class_name": "CNT2",
+    "score": 7.2
+  },
+  {
+    "id": 30,
+    "name": "Phan Quân",
+    "dob": "23/10/2008",
+    "gender": "Nữ",
+    "class_name": "CNT1",
+    "score": 3.7
+  },
+  {
+    "id": 31,
+    "name": "Nguyễn Nam",
+    "dob": "22/08/2006",
+    "gender": "Nam",
+    "class_name": "CNT1",
+    "score": 7.6
+  },
+  {
+    "id": 32,
+    "name": "Hoàng Minh",
+    "dob": "02/08/2006",
+    "gender": "Nữ",
+    "class_name": "K15",
+    "score": 10.0
+  },
+  {
+    "id": 33,
+    "name": "Nguyễn Phong",
+    "dob": "01/11/2008",
+    "gender": "Nữ",
+    "class_name": "CNTT4",
+    "score": 9.8
+  },
+  {
+    "id": 34,
+    "name": "Vũ Hải",
+    "dob": "29/07/2006",
+    "gender": "Nữ",
+    "class_name": "CNTT4",
+    "score": 5.0
+  },
+  {
+    "id": 35,
+    "name": "Lê Vinh",
+    "dob": "16/12/2005",
+    "gender": "Nữ",
+    "class_name": "K15",
+    "score": 9.1
+  },
+  {
+    "id": 36,
+    "name": "Hoàng Vinh",
+    "dob": "25/06/2007",
+    "gender": "Nữ",
+    "class_name": "CNT1",
+    "score": 5.0
+  },
+  {
+    "id": 37,
+    "name": "Lê Xuân",
+    "dob": "10/10/2005",
+    "gender": "Nữ",
+    "class_name": "CNTT3",
+    "score": 8.7
+  },
+  {
+    "id": 38,
+    "name": "Lê Vinh",
+    "dob": "02/03/2008",
+    "gender": "Nữ",
+    "class_name": "CNTT3",
+    "score": 5.5
+  },
+  {
+    "id": 39,
+    "name": "Lê Quân",
+    "dob": "06/12/2007",
+    "gender": "Nữ",
+    "class_name": "CNTT4",
+    "score": 9.0
+  },
+  {
+    "id": 40,
+    "name": "Phan An",
+    "dob": "06/11/2008",
+    "gender": "Nam",
+    "class_name": "CNTT4",
+    "score": 8.0
+  },
+  {
+    "id": 41,
+    "name": "Bùi Quân",
+    "dob": "28/03/2005",
+    "gender": "Nam",
+    "class_name": "CNT1",
+    "score": 5.5
+  },
+  {
+    "id": 42,
+    "name": "Đặng Hảo",
+    "dob": "04/05/2005",
+    "gender": "Nam",
+    "class_name": "CNTT3",
+    "score": 9.6
+  },
+  {
+    "id": 43,
+    "name": "Nguyễn Hải",
+    "dob": "13/09/2005",
+    "gender": "Nam",
+    "class_name": "CNTT4",
+    "score": 4.5
+  },
+  {
+    "id": 44,
+    "name": "Dương Linh",
+    "dob": "13/09/2005",
+    "gender": "Nữ",
+    "class_name": "CNT2",
+    "score": 9.5
+  },
+  {
+    "id": 45,
+    "name": "Dương Tân",
+    "dob": "01/01/2005",
+    "gender": "Nữ",
+    "class_name": "CNT1",
+    "score": 7.2
+  },
+  {
+    "id": 46,
+    "name": "Phạm Hải",
+    "dob": "10/03/2005",
+    "gender": "Nam",
+    "class_name": "K15",
+    "score": 5.1
+  },
+  {
+    "id": 47,
+    "name": "Lê Văn",
+    "dob": "16/09/2008",
+    "gender": "Nam",
+    "class_name": "CNT2",
+    "score": 8.1
+  },
+  {
+    "id": 48,
+    "name": "Trần Hảo",
+    "dob": "23/04/2007",
+    "gender": "Nữ",
+    "class_name": "CNTT3",
+    "score": 9.2
+  },
+  {
+    "id": 49,
+    "name": "Dương Linh",
+    "dob": "20/08/2007",
+    "gender": "Nữ",
+    "class_name": "CNT1",
+    "score": 9.9
+  },
+  {
+    "id": 50,
+    "name": "Trần Linh",
+    "dob": "15/04/2007",
+    "gender": "Nữ",
+    "class_name": "CNT1",
+    "score": 7.7
+  },
+  {
+    "id": 51,
+    "name": "Đặng Đức",
+    "dob": "28/12/2007",
+    "gender": "Nam",
+    "class_name": "CNTT4",
+    "score": 4.2
+  },
+  {
+    "id": 52,
+    "name": "Dương Phong",
+    "dob": "18/03/2007",
+    "gender": "Nam",
+    "class_name": "K15",
+    "score": 5.2
+  },
+  {
+    "id": 53,
+    "name": "Bùi Hải",
+    "dob": "14/02/2006",
+    "gender": "Nữ",
+    "class_name": "CNT1",
+    "score": 9.7
+  },
+  {
+    "id": 54,
+    "name": "Đặng Tân",
+    "dob": "27/11/2006",
+    "gender": "Nam",
+    "class_name": "CNT1",
+    "score": 7.5
+  },
+  {
+    "id": 55,
+    "name": "Hoàng Tuấn",
+    "dob": "18/05/2005",
+    "gender": "Nữ",
+    "class_name": "K15",
+    "score": 9.6
+  },
+  {
+    "id": 56,
+    "name": "Lê Tuấn",
+    "dob": "18/10/2008",
+    "gender": "Nữ",
+    "class_name": "K15",
+    "score": 9.7
+  },
+  {
+    "id": 57,
+    "name": "Hoàng Hảo",
+    "dob": "04/01/2006",
+    "gender": "Nam",
+    "class_name": "CNTT3",
+    "score": 3.6
+  },
+  {
+    "id": 58,
+    "name": "Phan Nam",
+    "dob": "24/01/2006",
+    "gender": "Nam",
+    "class_name": "CNT2",
+    "score": 3.1
+  },
+  {
+    "id": 59,
+    "name": "Dương Tân",
+    "dob": "08/01/2007",
+    "gender": "Nữ",
+    "class_name": "CNTT3",
+    "score": 8.6
+  },
+  {
+    "id": 60,
+    "name": "Dương An",
+    "dob": "06/04/2007",
+    "gender": "Nữ",
+    "class_name": "CNTT4",
+    "score": 9.2
+  },
+  {
+    "id": 61,
+    "name": "Dương Chiêu",
+    "dob": "22/04/2005",
+    "gender": "Nam",
+    "class_name": "CNTT4",
+    "score": 6.6
+  },
+  {
+    "id": 62,
+    "name": "Phan Yến",
+    "dob": "27/07/2007",
+    "gender": "Nam",
+    "class_name": "CNT2",
+    "score": 8.3
+  },
+  {
+    "id": 63,
+    "name": "Lê Xuân",
+    "dob": "08/05/2006",
+    "gender": "Nam",
+    "class_name": "CNT2",
+    "score": 8.7
+  },
+  {
+    "id": 64,
+    "name": "Dương Hảo",
+    "dob": "18/03/2007",
+    "gender": "Nam",
+    "class_name": "CNTT4",
+    "score": 10.0
+  },
+  {
+    "id": 65,
+    "name": "Trần Văn",
+    "dob": "08/01/2006",
+    "gender": "Nữ",
+    "class_name": "CNT2",
+    "score": 7.3
+  },
+  {
+    "id": 66,
+    "name": "Đặng Nam",
+    "dob": "05/10/2005",
+    "gender": "Nam",
+    "class_name": "K15",
+    "score": 7.3
+  },
+  {
+    "id": 67,
+    "name": "Nguyễn Tuấn",
+    "dob": "06/04/2007",
+    "gender": "Nữ",
+    "class_name": "K15",
+    "score": 4.1
+  },
+  {
+    "id": 68,
+    "name": "Trần Yến",
+    "dob": "07/01/2005",
+    "gender": "Nữ",
+    "class_name": "CNT1",
+    "score": 9.5
+  },
+  {
+    "id": 69,
+    "name": "Hoàng Phong",
+    "dob": "11/06/2006",
+    "gender": "Nữ",
+    "class_name": "K15",
+    "score": 9.1
+  },
+  {
+    "id": 70,
+    "name": "Trần Minh",
+    "dob": "08/03/2007",
+    "gender": "Nam",
+    "class_name": "CNTT4",
+    "score": 9.0
+  },
+  {
+    "id": 71,
+    "name": "Trần Phong",
+    "dob": "06/02/2005",
+    "gender": "Nữ",
+    "class_name": "CNTT3",
+    "score": 6.4
+  },
+  {
+    "id": 72,
+    "name": "Trần Vy",
+    "dob": "22/10/2007",
+    "gender": "Nữ",
+    "class_name": "CNTT3",
+    "score": 7.0
+  },
+  {
+    "id": 73,
+    "name": "Đặng Minh",
+    "dob": "26/12/2008",
+    "gender": "Nữ",
+    "class_name": "CNT2",
+    "score": 6.7
+  },
+  {
+    "id": 74,
+    "name": "Phạm Quân",
+    "dob": "29/10/2008",
+    "gender": "Nữ",
+    "class_name": "CNTT3",
+    "score": 5.5
+  },
+  {
+    "id": 75,
+    "name": "Vũ Phong",
+    "dob": "15/11/2007",
+    "gender": "Nam",
+    "class_name": "CNTT3",
+    "score": 5.5
+  },
+  {
+    "id": 76,
+    "name": "Nguyễn Linh",
+    "dob": "24/02/2006",
+    "gender": "Nữ",
+    "class_name": "CNT2",
+    "score": 3.6
+  },
+  {
+    "id": 77,
+    "name": "Hoàng Xuân",
+    "dob": "11/01/2006",
+    "gender": "Nam",
+    "class_name": "K15",
+    "score": 7.2
+  },
+  {
+    "id": 78,
+    "name": "Vũ Yến",
+    "dob": "18/02/2008",
+    "gender": "Nữ",
+    "class_name": "CNT2",
+    "score": 3.3
+  },
+  {
+    "id": 79,
+    "name": "Đặng Xuân",
+    "dob": "12/11/2006",
+    "gender": "Nữ",
+    "class_name": "K15",
+    "score": 3.7
+  },
+  {
+    "id": 80,
+    "name": "Phạm An",
+    "dob": "11/01/2008",
+    "gender": "Nam",
+    "class_name": "K15",
+    "score": 5.4
+  },
+  {
+    "id": 81,
+    "name": "Trần Văn",
+    "dob": "26/11/2005",
+    "gender": "Nữ",
+    "class_name": "CNT2",
+    "score": 9.7
+  },
+  {
+    "id": 82,
+    "name": "Trần Vy",
+    "dob": "05/03/2007",
+    "gender": "Nam",
+    "class_name": "CNT2",
+    "score": 9.9
+  },
+  {
+    "id": 83,
+    "name": "Vũ Phong",
+    "dob": "22/09/2005",
+    "gender": "Nữ",
+    "class_name": "CNTT4",
+    "score": 8.2
+  },
+  {
+    "id": 84,
+    "name": "Phạm Yến",
+    "dob": "12/11/2008",
+    "gender": "Nam",
+    "class_name": "K15",
+    "score": 4.1
+  },
+  {
+    "id": 85,
+    "name": "Phan Yến",
+    "dob": "27/06/2008",
+    "gender": "Nữ",
+    "class_name": "CNTT4",
+    "score": 9.6
+  },
+  {
+    "id": 86,
+    "name": "Vũ Quân",
+    "dob": "15/04/2007",
+    "gender": "Nam",
+    "class_name": "CNT2",
+    "score": 7.2
+  },
+  {
+    "id": 87,
+    "name": "Nguyễn Yến",
+    "dob": "13/09/2007",
+    "gender": "Nữ",
+    "class_name": "CNT1",
+    "score": 8.5
+  },
+  {
+    "id": 88,
+    "name": "Đặng Minh",
+    "dob": "31/03/2006",
+    "gender": "Nam",
+    "class_name": "K15",
+    "score": 7.1
+  },
+  {
+    "id": 89,
+    "name": "Đặng Minh",
+    "dob": "07/04/2008",
+    "gender": "Nam",
+    "class_name": "CNT1",
+    "score": 7.0
+  },
+  {
+    "id": 90,
+    "name": "Phan Hải",
+    "dob": "20/03/2005",
+    "gender": "Nữ",
+    "class_name": "CNT2",
+    "score": 4.0
+  },
+  {
+    "id": 91,
+    "name": "Phạm Văn",
+    "dob": "20/07/2006",
+    "gender": "Nữ",
+    "class_name": "CNT2",
+    "score": 6.9
+  },
+  {
+    "id": 92,
+    "name": "Dương Yến",
+    "dob": "22/08/2008",
+    "gender": "Nam",
+    "class_name": "CNT1",
+    "score": 8.0
+  },
+  {
+    "id": 93,
+    "name": "Đặng Phong",
+    "dob": "07/10/2005",
+    "gender": "Nam",
+    "class_name": "CNT2",
+    "score": 3.3
+  },
+  {
+    "id": 94,
+    "name": "Nguyễn Văn",
+    "dob": "22/02/2008",
+    "gender": "Nam",
+    "class_name": "CNTT3",
+    "score": 9.8
+  },
+  {
+    "id": 95,
+    "name": "Vũ Huy",
+    "dob": "18/04/2006",
+    "gender": "Nam",
+    "class_name": "CNTT4",
+    "score": 7.3
+  },
+  {
+    "id": 96,
+    "name": "Vũ Hải",
+    "dob": "06/10/2006",
+    "gender": "Nam",
+    "class_name": "CNT1",
+    "score": 8.1
+  },
+  {
+    "id": 97,
+    "name": "Trần Vinh",
+    "dob": "31/07/2006",
+    "gender": "Nữ",
+    "class_name": "CNT1",
+    "score": 9.2
+  },
+  {
+    "id": 98,
+    "name": "Bùi Hảo",
+    "dob": "01/06/2008",
+    "gender": "Nam",
+    "class_name": "CNT1",
+    "score": 5.0
+  },
+  {
+    "id": 99,
+    "name": "Hoàng Khánh",
+    "dob": "16/12/2006",
+    "gender": "Nam",
+    "class_name": "CNTT4",
+    "score": 9.2
+  },
+  {
+    "id": 100,
+    "name": "Nguyễn Hảo",
+    "dob": "04/03/2007",
+    "gender": "Nữ",
+    "class_name": "CNTT3",
+    "score": 3.2
+  }
+]
