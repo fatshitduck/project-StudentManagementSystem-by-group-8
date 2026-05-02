@@ -44,25 +44,38 @@ class StudentManager:
     def get_all(self):
         return self.get_all_students()
 
-    def search_students(self, keyword=""):
+    def search_students(self, keyword="", partial=True):
         if not keyword:
             return self.students
         keyword_lower = keyword.lower()
+        if partial:
+            return [s for s in self.students 
+                    if keyword_lower in s.name.lower() or keyword_lower in str(s.id)]
         return [s for s in self.students 
-                if keyword_lower in s.name.lower() or keyword_lower in str(s.id)]
+                if keyword_lower == s.name.lower() or keyword_lower == str(s.id)]
 
-    def search(self, keyword=""):
-        return self.search_students(keyword)
+    def search(self, keyword="", partial=True):
+        return self.search_students(keyword, partial=partial)
 
     def advanced_search(self, name="", student_id="", class_name="", 
-                        gender="", min_score=None, max_score=None):
+                        gender="", min_score=None, max_score=None, partial=True):
         results = self.students
         if name:
-            results = [s for s in results if name.lower() in s.name.lower()]
+            if partial:
+                results = [s for s in results if name.lower() in s.name.lower()]
+            else:
+                results = [s for s in results if name.lower() == s.name.lower()]
         if student_id:
-            results = [s for s in results if str(student_id) == str(s.id)]
+            sid_str = str(student_id).lower()
+            if partial:
+                results = [s for s in results if sid_str in str(s.id).lower()]
+            else:
+                results = [s for s in results if sid_str == str(s.id).lower()]
         if class_name:
-            results = [s for s in results if class_name.lower() in s.class_name.lower()]
+            if partial:
+                results = [s for s in results if class_name.lower() in s.class_name.lower()]
+            else:
+                results = [s for s in results if class_name.lower() == s.class_name.lower()]
         if gender and gender != "All":
             results = [s for s in results if s.gender == gender]
         if min_score is not None:

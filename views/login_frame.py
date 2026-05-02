@@ -61,11 +61,11 @@ class LoginFrame(ctk.CTkFrame):
 
     def _start_entrance_animation(self):
         """Animate elements entrance"""
-        # Logo bounce in
-        AnimationUtils.bounce_in(self.logo_label)
+        # Logo fade in from below
+        AnimationUtils.fade_in_from_bottom(self.logo_label, duration=0.6, distance=40)
 
-        # Title typewriter effect
-        AnimationUtils.typewriter_text(self.title_label, "Student Management System", 1.5)
+        # Title fade in from below
+        AnimationUtils.fade_in_from_bottom(self.title_label, duration=0.6, distance=30)
 
         # Form elements slide in from left
         AnimationUtils.slide_in(self.username_label, "left", 0.4)

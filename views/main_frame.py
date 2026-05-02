@@ -125,6 +125,7 @@ class MainFrame(ctk.CTkFrame):
                                          border_color=get_color("input_border"),
                                          text_color=get_color("text_primary"))
         self.search_entry.pack(side="left", padx=5)
+        self.search_entry.bind("<KeyRelease>", self.search_students)
         search_btn = AnimatedButton(toolbar, text="Search", command=self.search_students, width=80,
                      fg_color=get_color("button_primary"),
                      hover_color=get_color("button_hover"),
@@ -199,6 +200,11 @@ class MainFrame(ctk.CTkFrame):
                                     border_color=get_color("input_border"),
                                     text_color=get_color("text_primary"))
         self.adv_max.grid(row=1, column=2, padx=5, pady=5)
+        self.adv_name.bind("<KeyRelease>", self.advanced_search)
+        self.adv_id.bind("<KeyRelease>", self.advanced_search)
+        self.adv_class.bind("<KeyRelease>", self.advanced_search)
+        self.adv_min.bind("<KeyRelease>", self.advanced_search)
+        self.adv_max.bind("<KeyRelease>", self.advanced_search)
         adv_search_btn = AnimatedButton(adv_frame, text="Advanced Search", command=self.advanced_search,
                      fg_color=get_color("button_primary"),
                      hover_color=get_color("button_hover"),
@@ -284,20 +290,30 @@ class MainFrame(ctk.CTkFrame):
         data = [{"ID": s.id, "Name": s.name, "Date of Birth": s.dob, "Gender": s.gender, "Class": s.class_name, "Score": s.score} for s in students]
         self.tree.set_data(data)
 
-    def search_students(self):
+    def search_students(self, event=None):
         kw = self.search_entry.get()
-        results = self.manager.search(kw)
+        results = self.manager.search(kw, partial=True)
         data = [{"ID": s.id, "Name": s.name, "Date of Birth": s.dob, "Gender": s.gender, "Class": s.class_name, "Score": s.score} for s in results]
         self.tree.set_data(data)
 
-    def advanced_search(self):
+    def advanced_search(self, event=None):
         name = self.adv_name.get()
         sid = self.adv_id.get()
         class_name = self.adv_class.get()
         gender = self.adv_gender.get()
-        min_s = float(self.adv_min.get()) if self.adv_min.get() else None
-        max_s = float(self.adv_max.get()) if self.adv_max.get() else None
-        results = self.manager.advanced_search(name, sid, class_name, gender, min_s, max_s)
+        min_s = None
+        max_s = None
+        try:
+            if self.adv_min.get():
+                min_s = float(self.adv_min.get())
+        except ValueError:
+            min_s = None
+        try:
+            if self.adv_max.get():
+                max_s = float(self.adv_max.get())
+        except ValueError:
+            max_s = None
+        results = self.manager.advanced_search(name, sid, class_name, gender, min_s, max_s, partial=True)
         data = [{"ID": s.id, "Name": s.name, "Date of Birth": s.dob, "Gender": s.gender, "Class": s.class_name, "Score": s.score} for s in results]
         self.adv_tree.set_data(data)
 
@@ -441,5 +457,5 @@ class MainFrame(ctk.CTkFrame):
     def _fade_out_toast(self, toast):
         """Fade out toast before destroying"""
         if toast.winfo_exists():
-            AnimationUtils.fade_in(toast, 0.5)  # This would need modification for fade out
+            AnimationUtils.fade_out(toast, 0.5)
             toast.after(500, toast.destroy)
