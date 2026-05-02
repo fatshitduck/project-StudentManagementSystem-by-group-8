@@ -1,3 +1,5 @@
+import os
+from PIL import Image
 import customtkinter as ctk
 from tkinter import messagebox
 
@@ -7,7 +9,11 @@ class LoginFrame(ctk.CTkFrame):
         self.app = app
 
         self.center_frame = ctk.CTkFrame(self, fg_color=("#ffffff", "#1a1a1a"))
-        self.center_frame.pack(expand=True)
+        self.center_frame.pack(expand=True, padx=20, pady=40)
+
+        logo_path = os.path.join(os.path.dirname(__file__), "..", "assets", "logo uth.png")
+        self.logo_image = ctk.CTkImage(Image.open(logo_path), size=(180, 180))
+        ctk.CTkLabel(self.center_frame, image=self.logo_image, text="").pack(pady=(0, 20))
 
         ctk.CTkLabel(self.center_frame, text="Student Management System", 
                      font=ctk.CTkFont(size=24, weight="bold"),

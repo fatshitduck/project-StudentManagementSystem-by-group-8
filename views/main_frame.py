@@ -1,3 +1,5 @@
+import os
+from PIL import Image
 import customtkinter as ctk
 from tkinter import messagebox, filedialog
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
@@ -13,6 +15,9 @@ class MainFrame(ctk.CTkFrame):
         self.manager = app.manager
         self.current_page = "manage"
 
+        logo_path = os.path.join(os.path.dirname(__file__), "..", "assets", "logo uth.png")
+        self.logo_image = ctk.CTkImage(Image.open(logo_path), size=(80, 80))
+
         main_container = ctk.CTkFrame(self)
         main_container.pack(fill="both", expand=True)
 
@@ -22,6 +27,7 @@ class MainFrame(ctk.CTkFrame):
 
         header = ctk.CTkFrame(self.sidebar, fg_color="#1f1f1f")
         header.pack(fill="x", padx=15, pady=20)
+        ctk.CTkLabel(header, image=self.logo_image, text="").pack(pady=(0, 10))
         ctk.CTkLabel(header, text="📊 Student\nManagement", font=ctk.CTkFont(size=14, weight="bold")).pack()
 
         nav_frame = ctk.CTkFrame(self.sidebar, fg_color="#1f1f1f")
