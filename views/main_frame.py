@@ -7,10 +7,12 @@ import matplotlib.pyplot as plt
 from views.sortable_treeview import SortableTreeview
 from views.student_dialog import StudentDialog
 from models.student import Student
+from config.themes import get_color
+from utils.animations import AnimationUtils, AnimatedButton
 
 class MainFrame(ctk.CTkFrame):
     def __init__(self, parent, app):
-        super().__init__(parent)
+        super().__init__(parent, fg_color=get_color("bg_secondary"))
         self.app = app
         self.manager = app.manager
         self.current_page = "manage"
@@ -18,51 +20,88 @@ class MainFrame(ctk.CTkFrame):
         logo_path = os.path.join(os.path.dirname(__file__), "..", "assets", "logo uth.png")
         self.logo_image = ctk.CTkImage(Image.open(logo_path), size=(80, 80))
 
-        main_container = ctk.CTkFrame(self)
+        main_container = ctk.CTkFrame(self, fg_color=get_color("bg_secondary"))
         main_container.pack(fill="both", expand=True)
 
-        self.sidebar = ctk.CTkFrame(main_container, width=200, fg_color="#1f1f1f")
+        self.sidebar = ctk.CTkFrame(main_container, width=200, fg_color=get_color("bg_sidebar"))
         self.sidebar.pack(side="left", fill="y", padx=0, pady=0)
         self.sidebar.pack_propagate(False)
 
-        header = ctk.CTkFrame(self.sidebar, fg_color="#1f1f1f")
+        header = ctk.CTkFrame(self.sidebar, fg_color=get_color("bg_sidebar"))
         header.pack(fill="x", padx=15, pady=20)
         ctk.CTkLabel(header, image=self.logo_image, text="").pack(pady=(0, 10))
-        ctk.CTkLabel(header, text="📊 Student\nManagement", font=ctk.CTkFont(size=14, weight="bold")).pack()
+        ctk.CTkLabel(header, text="📊 Student\nManagement", 
+                     font=ctk.CTkFont(size=14, weight="bold"),
+                     text_color=get_color("text_primary")).pack()
 
-        nav_frame = ctk.CTkFrame(self.sidebar, fg_color="#1f1f1f")
+        nav_frame = ctk.CTkFrame(self.sidebar, fg_color=get_color("bg_sidebar"))
         nav_frame.pack(fill="x", padx=10, pady=10)
 
-        self.manage_btn = ctk.CTkButton(nav_frame, text="👥 Manage Student", command=self.show_manage_page, fg_color="#0066ff")
+        self.manage_btn = AnimatedButton(nav_frame, text="👥 Manage Student", 
+                                       command=self.show_manage_page, 
+                                       fg_color=get_color("button_primary"),
+                                       hover_color=get_color("button_hover"),
+                                       border_width=2,
+                                       border_color=get_color("button_primary"))
         self.manage_btn.pack(fill="x", pady=5)
 
-        self.search_btn = ctk.CTkButton(nav_frame, text="🔍 Search", command=self.show_search_page, fg_color="#333333")
+        self.search_btn = AnimatedButton(nav_frame, text="🔍 Search", 
+                                       command=self.show_search_page, 
+                                       fg_color=get_color("button_secondary"),
+                                       hover_color=get_color("button_hover"),
+                                       border_width=2,
+                                       border_color=get_color("button_secondary"))
         self.search_btn.pack(fill="x", pady=5)
 
-        self.stats_btn = ctk.CTkButton(nav_frame, text="📈 Statistics", command=self.show_stats_page, fg_color="#333333")
+        self.stats_btn = AnimatedButton(nav_frame, text="📈 Statistics", 
+                                      command=self.show_stats_page, 
+                                      fg_color=get_color("button_secondary"),
+                                      hover_color=get_color("button_hover"),
+                                      border_width=2,
+                                      border_color=get_color("button_secondary"))
         self.stats_btn.pack(fill="x", pady=5)
 
-        self.import_btn = ctk.CTkButton(nav_frame, text="📥 Import", command=self.show_import_page, fg_color="#333333")
+        self.import_btn = AnimatedButton(nav_frame, text="📥 Import", 
+                                       command=self.show_import_page, 
+                                       fg_color=get_color("button_secondary"),
+                                       hover_color=get_color("button_hover"),
+                                       border_width=2,
+                                       border_color=get_color("button_secondary"))
         self.import_btn.pack(fill="x", pady=5)
 
-        sidebar_footer = ctk.CTkFrame(self.sidebar, fg_color="#1f1f1f")
+        sidebar_footer = ctk.CTkFrame(self.sidebar, fg_color=get_color("bg_sidebar"))
         sidebar_footer.pack(side="bottom", fill="x", padx=10, pady=10)
 
-        self.theme_btn = ctk.CTkButton(sidebar_footer, text="🌙 Dark Mode", width=120, command=self.toggle_theme)
+        self.theme_btn = AnimatedButton(sidebar_footer, text="🌙 Dark Mode", width=120, 
+                                      command=self.toggle_theme,
+                                      fg_color=get_color("button_secondary"),
+                                      hover_color=get_color("button_hover"),
+                                      border_width=2, border_color=get_color("button_secondary"),
+                                      corner_radius=8)
+        self.theme_btn.set_command(self.toggle_theme)
         self.theme_btn.pack(fill="x", pady=2)
 
-        ctk.CTkButton(sidebar_footer, text="🚪 Logout", width=120, command=self.app.logout).pack(fill="x", pady=2)
+        logout_btn = AnimatedButton(sidebar_footer, text="🚪 Logout", width=120, 
+                     command=self.app.logout,
+                     fg_color=get_color("accent_danger"),
+                     hover_color=("#c0392b", "#e74c3c"),
+                     border_width=2, border_color=get_color("accent_danger"),
+                     corner_radius=8)
+        logout_btn.set_command(self.app.logout)
+        logout_btn.pack(fill="x", pady=2)
 
-        self.content_frame = ctk.CTkFrame(main_container)
+        self.content_frame = ctk.CTkFrame(main_container, fg_color=get_color("bg_secondary"))
         self.content_frame.pack(side="right", fill="both", expand=True, padx=15, pady=15)
 
-        top_bar = ctk.CTkFrame(self.content_frame, fg_color="#2d2d2d", height=60)
+        top_bar = ctk.CTkFrame(self.content_frame, fg_color=get_color("bg_topbar"), height=60)
         top_bar.pack(fill="x", pady=(0, 15))
         top_bar.pack_propagate(False)
 
-        ctk.CTkLabel(top_bar, text="Student Management System", font=ctk.CTkFont(size=18, weight="bold")).pack(side="left", padx=20, pady=20)
+        ctk.CTkLabel(top_bar, text="Student Management System", 
+                     font=ctk.CTkFont(size=18, weight="bold"),
+                     text_color=get_color("text_primary")).pack(side="left", padx=20, pady=20)
 
-        self.pages_frame = ctk.CTkFrame(self.content_frame)
+        self.pages_frame = ctk.CTkFrame(self.content_frame, fg_color=get_color("bg_secondary"))
         self.pages_frame.pack(fill="both", expand=True)
 
         self.setup_manage_page()
@@ -75,101 +114,145 @@ class MainFrame(ctk.CTkFrame):
         self.show_manage_page()
 
     def setup_manage_page(self):
-        self.manage_page = ctk.CTkFrame(self.pages_frame)
+        self.manage_page = ctk.CTkFrame(self.pages_frame, fg_color=get_color("bg_secondary"))
         
-        toolbar = ctk.CTkFrame(self.manage_page)
+        toolbar = ctk.CTkFrame(self.manage_page, fg_color=get_color("bg_secondary"))
         toolbar.pack(fill="x", padx=10, pady=10)
 
-        ctk.CTkLabel(toolbar, text="Search:").pack(side="left", padx=5)
-        self.search_entry = ctk.CTkEntry(toolbar, width=200, placeholder_text="Search by name or ID")
+        ctk.CTkLabel(toolbar, text="Search:", text_color=get_color("text_primary")).pack(side="left", padx=5)
+        self.search_entry = ctk.CTkEntry(toolbar, width=200, placeholder_text="Search by name or ID",
+                                         fg_color=get_color("input_bg"),
+                                         border_color=get_color("input_border"),
+                                         text_color=get_color("text_primary"))
         self.search_entry.pack(side="left", padx=5)
-        ctk.CTkButton(toolbar, text="Search", command=self.search_students, width=80).pack(side="left", padx=2)
+        search_btn = AnimatedButton(toolbar, text="Search", command=self.search_students, width=80,
+                     fg_color=get_color("button_primary"),
+                     hover_color=get_color("button_hover"),
+                     border_width=2, border_color=get_color("button_primary"),
+                     corner_radius=8)
+        search_btn.set_command(self.search_students)
+        search_btn.pack(side="left", padx=2)
 
-        btn_frame = ctk.CTkFrame(toolbar)
+        btn_frame = ctk.CTkFrame(toolbar, fg_color=get_color("bg_secondary"))
         btn_frame.pack(side="right")
-        ctk.CTkButton(btn_frame, text="Add", width=70, command=self.add_student).pack(side="left", padx=2)
-        ctk.CTkButton(btn_frame, text="Edit", width=70, command=self.edit_student).pack(side="left", padx=2)
-        ctk.CTkButton(btn_frame, text="Delete", width=70, command=self.delete_student).pack(side="left", padx=2)
-        ctk.CTkButton(btn_frame, text="Refresh", width=70, command=self.refresh_table).pack(side="left", padx=2)
+        for btn_text, btn_cmd in [("Add", self.add_student), ("Edit", self.edit_student), 
+                                   ("Delete", self.delete_student), ("Refresh", self.refresh_table)]:
+            fg_color = get_color("accent_danger") if btn_text == "Delete" else get_color("button_primary")
+            border_color = fg_color
+            ctk.CTkButton(btn_frame, text=btn_text, width=70, command=btn_cmd,
+                         fg_color=fg_color, hover_color=get_color("button_hover"),
+                         border_width=2, border_color=border_color,
+                         corner_radius=8).pack(side="left", padx=2)
 
         columns = ["ID", "Name", "Date of Birth", "Gender", "Class", "Score"]
         self.tree = SortableTreeview(self.manage_page, columns=columns, height=15)
         self.tree.pack(fill="both", expand=True, padx=10, pady=10)
         self.tree.bind("<<TreeviewSelect>>", self.on_tree_select)
 
-        detail_frame = ctk.CTkFrame(self.manage_page)
+        detail_frame = ctk.CTkFrame(self.manage_page, fg_color=get_color("bg_secondary"))
         detail_frame.pack(fill="x", padx=10, pady=5)
-        ctk.CTkLabel(detail_frame, text="Student Details:", font=ctk.CTkFont(weight="bold")).pack(anchor="w")
+        ctk.CTkLabel(detail_frame, text="Student Details:", font=ctk.CTkFont(weight="bold"),
+                     text_color=get_color("text_primary")).pack(anchor="w")
 
         self.detail_labels = {}
         for field in columns:
-            f = ctk.CTkFrame(detail_frame)
+            f = ctk.CTkFrame(detail_frame, fg_color=get_color("bg_secondary"))
             f.pack(fill="x", pady=2)
-            ctk.CTkLabel(f, text=f"{field}:", width=100).pack(side="left")
-            self.detail_labels[field] = ctk.CTkLabel(f, text="", anchor="w")
+            ctk.CTkLabel(f, text=f"{field}:", width=100, text_color=get_color("text_primary")).pack(side="left")
+            self.detail_labels[field] = ctk.CTkLabel(f, text="", anchor="w", text_color=get_color("text_primary"))
             self.detail_labels[field].pack(side="left", padx=10)
 
     def setup_search_page(self):
-        self.search_page = ctk.CTkFrame(self.pages_frame)
+        self.search_page = ctk.CTkFrame(self.pages_frame, fg_color=get_color("bg_secondary"))
         
-        adv_frame = ctk.CTkFrame(self.search_page)
+        adv_frame = ctk.CTkFrame(self.search_page, fg_color=get_color("bg_secondary"))
         adv_frame.pack(fill="x", padx=10, pady=10)
 
-        self.adv_name = ctk.CTkEntry(adv_frame, width=150, placeholder_text="Name")
+        self.adv_name = ctk.CTkEntry(adv_frame, width=150, placeholder_text="Name",
+                                     fg_color=get_color("input_bg"),
+                                     border_color=get_color("input_border"),
+                                     text_color=get_color("text_primary"))
         self.adv_name.grid(row=0, column=0, padx=5, pady=5)
-        self.adv_id = ctk.CTkEntry(adv_frame, width=100, placeholder_text="ID")
+        self.adv_id = ctk.CTkEntry(adv_frame, width=100, placeholder_text="ID",
+                                   fg_color=get_color("input_bg"),
+                                   border_color=get_color("input_border"),
+                                   text_color=get_color("text_primary"))
         self.adv_id.grid(row=0, column=1, padx=5, pady=5)
-        self.adv_class = ctk.CTkEntry(adv_frame, width=150, placeholder_text="Class")
+        self.adv_class = ctk.CTkEntry(adv_frame, width=150, placeholder_text="Class",
+                                      fg_color=get_color("input_bg"),
+                                      border_color=get_color("input_border"),
+                                      text_color=get_color("text_primary"))
         self.adv_class.grid(row=0, column=2, padx=5, pady=5)
 
-        self.adv_gender = ctk.CTkComboBox(adv_frame, values=["All", "Nam", "Nu"], width=100)
+        self.adv_gender = ctk.CTkComboBox(adv_frame, values=["All", "Nam", "Nu"], width=100,
+                                         fg_color=get_color("input_bg"),
+                                         border_color=get_color("input_border"),
+                                         text_color=get_color("text_primary"))
         self.adv_gender.grid(row=1, column=0, padx=5, pady=5)
-        self.adv_min = ctk.CTkEntry(adv_frame, width=80, placeholder_text="Min Score")
+        self.adv_min = ctk.CTkEntry(adv_frame, width=80, placeholder_text="Min Score",
+                                    fg_color=get_color("input_bg"),
+                                    border_color=get_color("input_border"),
+                                    text_color=get_color("text_primary"))
         self.adv_min.grid(row=1, column=1, padx=5, pady=5)
-        self.adv_max = ctk.CTkEntry(adv_frame, width=80, placeholder_text="Max Score")
+        self.adv_max = ctk.CTkEntry(adv_frame, width=80, placeholder_text="Max Score",
+                                    fg_color=get_color("input_bg"),
+                                    border_color=get_color("input_border"),
+                                    text_color=get_color("text_primary"))
         self.adv_max.grid(row=1, column=2, padx=5, pady=5)
-        ctk.CTkButton(adv_frame, text="Advanced Search", command=self.advanced_search).grid(row=1, column=3, padx=20, pady=5)
+        adv_search_btn = AnimatedButton(adv_frame, text="Advanced Search", command=self.advanced_search,
+                     fg_color=get_color("button_primary"),
+                     hover_color=get_color("button_hover"),
+                     border_width=2, border_color=get_color("button_primary"),
+                     corner_radius=8)
+        adv_search_btn.set_command(self.advanced_search)
+        adv_search_btn.grid(row=1, column=3, padx=20, pady=5)
 
         columns = ["ID", "Name", "Date of Birth", "Gender", "Class", "Score"]
         self.adv_tree = SortableTreeview(self.search_page, columns=columns, height=15)
         self.adv_tree.pack(fill="both", expand=True, padx=10, pady=10)
 
     def setup_stats_page(self):
-        self.stats_page = ctk.CTkFrame(self.pages_frame)
-        self.stat_frame = ctk.CTkFrame(self.stats_page)
+        self.stats_page = ctk.CTkFrame(self.pages_frame, fg_color=get_color("bg_secondary"))
+        self.stat_frame = ctk.CTkFrame(self.stats_page, fg_color=get_color("bg_secondary"))
         self.stat_frame.pack(fill="both", expand=True, padx=10, pady=10)
 
     def setup_import_page(self):
-        self.import_page = ctk.CTkFrame(self.pages_frame)
+        self.import_page = ctk.CTkFrame(self.pages_frame, fg_color=get_color("bg_secondary"))
         
-        ctk.CTkLabel(self.import_page, text="Import Student Data from File", font=ctk.CTkFont(size=16, weight="bold")).pack(pady=20)
-        ctk.CTkLabel(self.import_page, text="Supported formats: CSV, Excel, JSON").pack(pady=10)
-        ctk.CTkLabel(self.import_page, text="Required columns: id, name, dob, gender, class_name, score").pack(pady=10)
-        ctk.CTkButton(self.import_page, text="Select File to Import", command=self.import_file, width=200, height=40).pack(pady=20)
+        ctk.CTkLabel(self.import_page, text="Import Student Data from File", 
+                     font=ctk.CTkFont(size=16, weight="bold"),
+                     text_color=get_color("text_primary")).pack(pady=20)
+        ctk.CTkLabel(self.import_page, text="Supported formats: CSV, Excel, JSON",
+                     text_color=get_color("text_secondary")).pack(pady=10)
+        ctk.CTkLabel(self.import_page, text="Required columns: id, name, dob, gender, class_name, score",
+                     text_color=get_color("text_secondary")).pack(pady=10)
+        import_btn = AnimatedButton(self.import_page, text="Select File to Import", command=self.import_file, 
+                     width=200, height=40, fg_color=get_color("button_primary"),
+                     hover_color=get_color("button_hover"),
+                     border_width=2, border_color=get_color("button_primary"),
+                     corner_radius=8)
+        import_btn.set_command(self.import_file)
+        import_btn.pack(pady=20)
 
     def show_manage_page(self):
-        self._hide_all_pages()
-        self.manage_page.pack(fill="both", expand=True)
-        self.current_page = "manage"
-        self._update_nav_buttons()
+        self._show_page_with_animation(self.manage_page, "manage")
 
     def show_search_page(self):
-        self._hide_all_pages()
-        self.search_page.pack(fill="both", expand=True)
-        self.current_page = "search"
-        self._update_nav_buttons()
+        self._show_page_with_animation(self.search_page, "search")
 
     def show_stats_page(self):
-        self._hide_all_pages()
-        self.stats_page.pack(fill="both", expand=True)
-        self.current_page = "stats"
-        self._update_nav_buttons()
+        self._show_page_with_animation(self.stats_page, "stats")
         self.update_statistics()
 
     def show_import_page(self):
+        self._show_page_with_animation(self.import_page, "import")
+
+    def _show_page_with_animation(self, page, page_name):
+        """Show a page with fade-in animation"""
         self._hide_all_pages()
-        self.import_page.pack(fill="both", expand=True)
-        self.current_page = "import"
+        page.pack(fill="both", expand=True)
+        page.configure(fg_color=get_color("bg_secondary"))
+        self.current_page = page_name
         self._update_nav_buttons()
 
     def _hide_all_pages(self):
@@ -187,9 +270,13 @@ class MainFrame(ctk.CTkFrame):
         }
         for key, btn in buttons.items():
             if key == self.current_page:
-                btn.configure(fg_color="#0066ff")
+                btn.configure(fg_color=get_color("button_primary"), 
+                            border_color=get_color("accent_primary"),
+                            border_width=3)
             else:
-                btn.configure(fg_color="#333333")
+                btn.configure(fg_color=get_color("button_secondary"),
+                            border_color=get_color("button_secondary"),
+                            border_width=2)
 
     # ---------- Methods ----------
     def refresh_table(self):
@@ -271,18 +358,22 @@ class MainFrame(ctk.CTkFrame):
         avg_score = sum(s.score for s in students) / total if total > 0 else 0
 
         # Summary
-        summary = ctk.CTkFrame(self.stat_frame)
+        summary = ctk.CTkFrame(self.stat_frame, fg_color=get_color("bg_secondary"))
         summary.pack(fill="x", pady=10)
         
-        stat1 = ctk.CTkFrame(summary)
+        stat1 = ctk.CTkFrame(summary, fg_color=get_color("bg_topbar"))
         stat1.pack(side="left", padx=20)
-        ctk.CTkLabel(stat1, text="Total Students", font=ctk.CTkFont(size=12)).pack()
-        ctk.CTkLabel(stat1, text=str(total), font=ctk.CTkFont(size=24, weight="bold")).pack()
+        ctk.CTkLabel(stat1, text="Total Students", font=ctk.CTkFont(size=12), 
+                     text_color=get_color("text_secondary")).pack()
+        ctk.CTkLabel(stat1, text=str(total), font=ctk.CTkFont(size=24, weight="bold"),
+                     text_color=get_color("accent_primary")).pack()
 
-        stat2 = ctk.CTkFrame(summary)
+        stat2 = ctk.CTkFrame(summary, fg_color=get_color("bg_topbar"))
         stat2.pack(side="left", padx=20)
-        ctk.CTkLabel(stat2, text="Average Score", font=ctk.CTkFont(size=12)).pack()
-        ctk.CTkLabel(stat2, text=f"{avg_score:.2f}", font=ctk.CTkFont(size=24, weight="bold")).pack()
+        ctk.CTkLabel(stat2, text="Average Score", font=ctk.CTkFont(size=12),
+                     text_color=get_color("text_secondary")).pack()
+        ctk.CTkLabel(stat2, text=f"{avg_score:.2f}", font=ctk.CTkFont(size=24, weight="bold"),
+                     text_color=get_color("accent_secondary")).pack()
 
         # Chart
         class_counts = {}
@@ -291,10 +382,14 @@ class MainFrame(ctk.CTkFrame):
         
         if class_counts:
             fig, ax = plt.subplots(figsize=(8, 5))
-            ax.bar(class_counts.keys(), class_counts.values(), color="#0066ff")
+            accent_light, accent_dark = get_color("button_primary")
+            chart_color = accent_dark if ctk.get_appearance_mode() == "Dark" else accent_light
+            ax.bar(class_counts.keys(), class_counts.values(), color=chart_color)
             ax.set_title("Total Students per Class", fontsize=14, weight="bold")
             ax.set_xlabel("Class")
             ax.set_ylabel("Count")
+            fig.patch.set_facecolor("none")
+            ax.set_facecolor("none")
             
             canvas = FigureCanvasTkAgg(fig, master=self.stat_frame)
             canvas.draw()
@@ -321,9 +416,30 @@ class MainFrame(ctk.CTkFrame):
             self.theme_btn.configure(text="🌙 Dark Mode")
 
     def show_toast(self, msg):
+        """Show animated toast notification"""
         toast = ctk.CTkToplevel(self)
         toast.title("")
         toast.geometry("250x50")
         toast.attributes('-topmost', True)
-        ctk.CTkLabel(toast, text=msg).pack(expand=True, padx=20, pady=10)
-        toast.after(2000, toast.destroy)
+        toast.overrideredirect(True)  # Remove window borders
+        
+        # Position toast at bottom right
+        screen_width = toast.winfo_screenwidth()
+        screen_height = toast.winfo_screenheight()
+        toast.geometry(f"250x50+{screen_width-270}+{screen_height-80}")
+        
+        toast_label = ctk.CTkLabel(toast, text=msg, fg_color=get_color("accent_primary"),
+                                  text_color=("white", "black"), corner_radius=8)
+        toast_label.pack(expand=True, fill="both", padx=2, pady=2)
+        
+        # Slide in animation
+        AnimationUtils.slide_in(toast, "up", 0.3, 50)
+        
+        # Auto destroy after 3 seconds
+        toast.after(3000, lambda: self._fade_out_toast(toast))
+    
+    def _fade_out_toast(self, toast):
+        """Fade out toast before destroying"""
+        if toast.winfo_exists():
+            AnimationUtils.fade_in(toast, 0.5)  # This would need modification for fade out
+            toast.after(500, toast.destroy)

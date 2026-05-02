@@ -1,3 +1,4 @@
+import os
 import customtkinter as ctk
 from database.student_manager import StudentManager
 from views.login_frame import LoginFrame
@@ -9,6 +10,10 @@ class App(ctk.CTk):
         ctk.set_appearance_mode("dark")
         self.title("Student Management System")
         self.geometry("1200x700")
+        
+        icon_path = os.path.join(os.path.dirname(__file__), "assets", "icon.ico")
+        if os.path.exists(icon_path):
+            self.iconbitmap(icon_path)
         
         self.manager = StudentManager()
 
