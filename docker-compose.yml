@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  student-management-system:
+    build: .
+    container_name: student-management-app
+    volumes:
+      - ./data:/app/data
+      - ./assets:/app/assets
+    environment:
+      - DISPLAY=${DISPLAY}
+      - PYTHONPATH=/app
+    # Uncomment for GUI support (requires X11 forwarding)
+    # network_mode: host
+    # For headless testing, use this instead:
+    command: python test_animations.py

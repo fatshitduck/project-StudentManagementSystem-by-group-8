@@ -1,7 +1,7 @@
 import os
 from PIL import Image
 import customtkinter as ctk
-from tkinter import messagebox, filedialog
+from tkinter import messagebox, filedialog, ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import matplotlib.pyplot as plt
 from views.sortable_treeview import SortableTreeview
@@ -17,7 +17,8 @@ class MainFrame(ctk.CTkFrame):
         self.manager = app.manager
         self.current_page = "manage"
 
-        logo_path = os.path.join(os.path.dirname(__file__), "..", "assets", "logo uth.png")
+        from utils.resources import resource_path
+        logo_path = resource_path(os.path.join("assets", "logo uth.png"))
         self.logo_image = ctk.CTkImage(Image.open(logo_path), size=(80, 80))
 
         main_container = ctk.CTkFrame(self, fg_color=get_color("bg_secondary"))
@@ -147,8 +148,26 @@ class MainFrame(ctk.CTkFrame):
 
         columns = ["ID", "Name", "Date of Birth", "Gender", "Class", "Score"]
         self.tree = SortableTreeview(self.manage_page, columns=columns, height=15)
+        self.tree.configure(yscrollcommand=lambda f, l: self.tree_y_scroll.set(f, l),
+                            xscrollcommand=lambda f, l: self.tree_x_scroll.set(f, l))
         self.tree.pack(fill="both", expand=True, padx=10, pady=10)
         self.tree.bind("<<TreeviewSelect>>", self.on_tree_select)
+
+        self.tree_y_scroll = ttk.Scrollbar(self.manage_page, orient="vertical", command=self.tree.yview)
+        self.tree_y_scroll.pack(side="right", fill="y")
+        self.tree_x_scroll = ttk.Scrollbar(self.manage_page, orient="horizontal", command=self.tree.xview)
+        self.tree_x_scroll.pack(side="bottom", fill="x")
+
+        column_widths = {
+            "ID": 80,
+            "Name": 220,
+            "Date of Birth": 120,
+            "Gender": 80,
+            "Class": 100,
+            "Score": 80,
+        }
+        for col in columns:
+            self.tree.column(col, width=column_widths[col], minwidth=column_widths[col], anchor="w", stretch=True)
 
         detail_frame = ctk.CTkFrame(self.manage_page, fg_color=get_color("bg_secondary"))
         detail_frame.pack(fill="x", padx=10, pady=5)
@@ -215,7 +234,25 @@ class MainFrame(ctk.CTkFrame):
 
         columns = ["ID", "Name", "Date of Birth", "Gender", "Class", "Score"]
         self.adv_tree = SortableTreeview(self.search_page, columns=columns, height=15)
+        self.adv_tree.configure(yscrollcommand=lambda f, l: self.adv_tree_y_scroll.set(f, l),
+                                xscrollcommand=lambda f, l: self.adv_tree_x_scroll.set(f, l))
         self.adv_tree.pack(fill="both", expand=True, padx=10, pady=10)
+
+        self.adv_tree_y_scroll = ttk.Scrollbar(self.search_page, orient="vertical", command=self.adv_tree.yview)
+        self.adv_tree_y_scroll.pack(side="right", fill="y")
+        self.adv_tree_x_scroll = ttk.Scrollbar(self.search_page, orient="horizontal", command=self.adv_tree.xview)
+        self.adv_tree_x_scroll.pack(side="bottom", fill="x")
+
+        column_widths = {
+            "ID": 80,
+            "Name": 220,
+            "Date of Birth": 120,
+            "Gender": 80,
+            "Class": 100,
+            "Score": 80,
+        }
+        for col in columns:
+            self.adv_tree.column(col, width=column_widths[col], minwidth=column_widths[col], anchor="w", stretch=True)
 
     def setup_stats_page(self):
         self.stats_page = ctk.CTkFrame(self.pages_frame, fg_color=get_color("bg_secondary"))

@@ -13,7 +13,8 @@ class LoginFrame(ctk.CTkFrame):
         self.center_frame = ctk.CTkFrame(self, fg_color=get_color("bg_primary"))
         self.center_frame.pack(expand=True, padx=20, pady=40)
 
-        logo_path = os.path.join(os.path.dirname(__file__), "..", "assets", "logo uth.png")
+        from utils.resources import resource_path
+        logo_path = resource_path(os.path.join("assets", "logo uth.png"))
         self.logo_image = ctk.CTkImage(Image.open(logo_path), size=(180, 180))
         self.logo_label = ctk.CTkLabel(self.center_frame, image=self.logo_image, text="")
         self.logo_label.pack(pady=(0, 20))

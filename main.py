@@ -1,6 +1,7 @@
 import os
 import customtkinter as ctk
 from database.student_manager import StudentManager
+from utils.resources import resource_path
 from views.login_frame import LoginFrame
 from views.main_frame import MainFrame
 
@@ -11,7 +12,7 @@ class App(ctk.CTk):
         self.title("Student Management System")
         self.geometry("1200x700")
         
-        icon_path = os.path.join(os.path.dirname(__file__), "assets", "icon.ico")
+        icon_path = resource_path(os.path.join("assets", "icon.ico"))
         if os.path.exists(icon_path):
             self.iconbitmap(icon_path)
         
